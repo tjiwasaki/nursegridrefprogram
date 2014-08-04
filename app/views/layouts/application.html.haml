@@ -1,0 +1,25 @@
+!!!
+/[if lt IE 7 ] <html class="ie6 <haml_loud> @bodyId </haml_loud>">
+/[if IE 7 ] <html class="ie7 <haml_loud> @bodyId </haml_loud>">
+/[if IE 8 ] <html class="ie8 <haml_loud> @bodyId </haml_loud>">
+/[if IE 9 ] <html class="ie9 <haml_loud> @bodyId </haml_loud>">
+/ [if (gt IE 9)|!(IE)]><!
+%html{class: @bodyId}
+  / <![endif]
+  %head
+    %title Nurse Launch
+    %link{href: asset_path('favicon.ico'), rel: "icon", type: "image/x-icon"}
+    %link{href: asset_path('favicon.ico'), rel: "shortcut icon", type: "image/x-icon"}
+    %meta{content: "Nurse Launch", property: "og:title"}
+    %meta{content: "Nurse Launch Description", property: "og:description"}
+    %meta{content: asset_path("refer/truman.png"), property: "og:image"}
+    %meta{content: root_url, property: "og:url"}
+    - if @is_mobile
+      - if @bodyId == 'home'
+        %meta{content: "width=1600", name: "viewport"}
+      - else
+        %meta{content: "width=1120", name: "viewport"}
+    = stylesheet_link_tag :application, :media => "all"
+    = csrf_meta_tags
+  %body{id: @bodyId}
+    = yield
