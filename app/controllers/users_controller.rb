@@ -74,6 +74,19 @@ class UsersController < ApplicationController
         
         respond_to do |format|
           if !@user.nil?
+            @stops = User::REFERRAL_STEPS
+            @found = nil
+
+            @stops.reverse_each do |stop|
+              if stop["count"] <= @user.referrals.count and !found
+                  stop["selected"] = true
+                  @found = stop
+              else
+                  stop["selected"] = false
+              end
+            end
+
+
             format.html #refer.html.erb
           else
             format.html { redirect_to root_path, :alert => "Something went wrong!" }
