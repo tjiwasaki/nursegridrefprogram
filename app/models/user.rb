@@ -13,26 +13,26 @@ class User < ActiveRecord::Base
     REFERRAL_STEPS = [
         {
             'count' => 5,
-            "html" => "Shave<br>Cream",
-            "class" => "two",
+            "description" => "Shave<br>Cream",
+            "class" => "prize-two",
             "image" =>  ActionController::Base.helpers.asset_path("refer/cream-tooltip@2x.png")
         },
         {
             'count' => 10,
-            "html" => "Truman Handle<br>w/ Blade",
-            "class" => "three",
+            "description" => "Truman Handle<br>w/ Blade",
+            "class" => "prize-three",
             "image" => ActionController::Base.helpers.asset_path("refer/truman@2x.png")
         },
         {
             'count' => 25,
-            "html" => "Winston<br>Shave Set",
-            "class" => "four",
+            "description" => "Winston<br>Shave Set",
+            "class" => "prize-four",
             "image" => ActionController::Base.helpers.asset_path("refer/winston@2x.png")
         },
         {
             'count' => 50,
-            "html" => "One Year<br>Free Blades",
-            "class" => "five",
+            "description" => "One Year<br>Free Blades",
+            "class" => "prize-five",
             "image" => ActionController::Base.helpers.asset_path("refer/blade-explain@2x.png")
         }
     ]

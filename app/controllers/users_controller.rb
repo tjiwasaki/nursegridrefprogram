@@ -70,21 +70,22 @@ class UsersController < ApplicationController
         @is_mobile = mobile_device?
 
         @user = User.find_by_email(email)
-        @stops = User::REFERRAL_STEPS
+        @rewards = User::REFERRAL_STEPS
         
         respond_to do |format|
           if !@user.nil?
-            @stops = User::REFERRAL_STEPS
-            @found = nil
+            @rewards = User::REFERRAL_STEPS
+            @current_reward = nil
 
-            @stops.reverse_each do |stop|
-              if stop["count"] <= @user.referrals.count and !found
-                  stop["selected"] = true
-                  @found = stop
+            @rewards.reverse_each do |reward|
+              if reward["count"] <= @user.referrals.count && @current_reward.nil?
+                reward["selected"] = true
+                @current_reward = reward
               else
-                  stop["selected"] = false
+                reward["selected"] = false
               end
             end
+
 
 
             format.html #refer.html.erb

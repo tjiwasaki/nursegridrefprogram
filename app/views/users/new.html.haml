@@ -1,0 +1,23 @@
+.header
+  %a{ href: "http://nursegrid.com"} Logo
+.hero
+  %h1 NurseGrid is Coming
+  %p
+    Nurses desearve a tool built just for them and it's finally here.
+.form_wrap
+  - if Rails.application.config.ended
+    %p
+      Thank you for participating in our prelaunch.
+    %p
+      We are compiling rewards right now and will email rewards to all recipients in the coming days.
+    %p
+      In the meantime, head to
+      %a{href: "http://nursegrid.com"} www.nursegrid.com
+    %p ThanksAgain!    
+  - else
+    %p
+      Invite friends and earn
+    %p NursGrid rewards today.
+    = form_for @user, :url => { :action => "create" } do |f|
+      = f.text_field :email, :placeholder => "Enter Email"
+      %input{name: "commit", type: "submit", value: "Get Started"}
