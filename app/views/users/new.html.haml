@@ -1,9 +1,12 @@
-.header
-  %a{ href: "http://nursegrid.com"} Logo
 .hero
-  %h1 NurseGrid is Coming
-  %p
-    Nurses desearve a tool built just for them and it's finally here.
+  .column.left
+    %h1 NurseGrid is Coming
+    %p
+      Nurses desearve a tool built
+    %p
+      just for them and it's finally here.
+  .column.right
+    =image_tag "nursegrid_application_examples.png"
 .form_wrap
   - if Rails.application.config.ended
     %p

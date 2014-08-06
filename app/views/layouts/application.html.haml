@@ -7,9 +7,10 @@
 %html{class: @bodyId}
   / <![endif]
   %head
-    %title Nurse Launch
+    %title NurseGrid Referrals
     %link{href: asset_path('favicon.ico'), rel: "icon", type: "image/x-icon"}
     %link{href: asset_path('favicon.ico'), rel: "shortcut icon", type: "image/x-icon"}
+    %link{href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic", rel: "stylesheet", type: "text/css"}
     %meta{content: "Nurse Launch", property: "og:title"}
     %meta{content: "Nurse Launch Description", property: "og:description"}
     %meta{content: asset_path("refer/truman.png"), property: "og:image"}
@@ -22,4 +23,6 @@
     = stylesheet_link_tag :application, :media => "all"
     = csrf_meta_tags
   %body{id: @bodyId}
+    .header
+      %a.main_logo{ href: "http://nursegrid.com"} Logo
     = yield
