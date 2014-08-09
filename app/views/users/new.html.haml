@@ -18,9 +18,9 @@
       %a{href: "http://nursegrid.com"} www.nursegrid.com
     %p ThanksAgain!    
   - else
-    %p
-      Invite friends and earn
-    %p NursGrid rewards today.
+    %p Invite friends and earn
+    %p NurseGrid rewards today.
     = form_for @user, :url => { :action => "create" } do |f|
-      = f.text_field :email, :placeholder => "Enter Email"
-      %input{name: "commit", type: "submit", value: "Get Started"}
+      .field
+        = f.text_field :email, :placeholder => "Enter Email"
+        %input{name: "commit", type: "submit", value: "Get Started"}

@@ -10,10 +10,11 @@
     %title NurseGrid Referrals
     %link{href: asset_path('favicon.ico'), rel: "icon", type: "image/x-icon"}
     %link{href: asset_path('favicon.ico'), rel: "shortcut icon", type: "image/x-icon"}
+    %link{href: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", rel: "stylesheet"}
     %link{href: "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic", rel: "stylesheet", type: "text/css"}
-    %meta{content: "Nurse Launch", property: "og:title"}
-    %meta{content: "Nurse Launch Description", property: "og:description"}
-    %meta{content: asset_path("refer/truman.png"), property: "og:image"}
+    %meta{content: "NurseGrid Launch", property: "og:title"}
+    %meta{content: "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends.", property: "og:description"}
+    %meta{content: asset_path("nursegrid_share_image.png"), property: "og:image"}
     %meta{content: root_url, property: "og:url"}
     - if @is_mobile
       - if @bodyId == 'home'
@@ -21,6 +22,7 @@
       - else
         %meta{content: "width=1120", name: "viewport"}
     = stylesheet_link_tag :application, :media => "all"
+    = javascript_include_tag :application
     = csrf_meta_tags
   %body{id: @bodyId}
     .header

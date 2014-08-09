@@ -1,14 +1,9 @@
 $(document).ready(function(){
-	var myVideo = document.getElementById('video');
-	console.log(myVideo);
-	if(myVideo){
-		if (typeof myVideo.loop == 'boolean') { // loop supported
-		    myVideo.loop = true;
-		} else { // loop property not supported
-		    myVideo.on('ended', function () {
-		    this.currentTime = 0;
-		    this.play();
-		    }, false);
-		}
-	}
+	// need to change this if prize steps change
+	var fill_bar = $(".progress_bar_wrapper").find(".filled")
+	var referral_count = fill_bar.data('referralCount');
+	fill_bar.css({
+		width: (referral_count / 20) * 100 + "%"
+	})
+
 })

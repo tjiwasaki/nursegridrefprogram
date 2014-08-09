@@ -1,35 +1,55 @@
-.hero
+.hero.referral_page
   .column.left
     %h1 Nursing Will Never Be The Same
   .column.right
-    %h2 Don't leave any nurses behind
-    %h2 Invite friends & Earn Rewards
-    %p Share your unique link view email, Facebook
-    %p or Twitter and earn rewares for
-    %p each friend who signs up.
     .share_wrap
+      %h2 Don't leave any nurses behind!
+      %h2.last Invite friends & Earn Rewards
+      %p Share your unique link via email, Facebook
+      %p or Twitter and earn rewards for
+      %p each friend who signs up.
       .referral_link
         ="#{root_url}?ref=#{@user.referral_code}"
       .share_links
-        .facebook
-        .twitter
-
+        %ul.rrssb-buttons.clearfix
+          %li.facebook
+            %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegrid.com"}
+              %i.fa.fa-facebook
+              %span.text facebook
+          %li.twitter
+            -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: nursegrid.com/referrals/?ref=#{@user.referral_code}"
+            -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: nursegrid.com/referrals/?ref=#{@user.referral_code} #nursegrid"
+            %a.popup{href: "http://twitter.com/home?status=#{CGI.escape(twitter_text)}"}
+              %i.fa.fa-twitter
+              %span.text twitter
+          %li.email
+            %a{href: "mailto:?subject=Check%20Out%20NurseGrid&body=#{ERB::Util.url_encode(mail_text)}"}
+              %i.fa.fa-envelope        
+              %span.text email
+                  
     
 .prizes
-  %h3 Here's How to win Works:
-  %ul.rewards
-    - @rewards.each do |reward|
-      %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class'] == 'five' ? 'last' : ''}"}
-      .circle
-        =reward['count']
-      %p= reward['description'].html_safe
-      .modal
-        %img{src: "#{reward['image']}"}
-  .joined
-    Friends Joined
-  .progress_bar{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}"}
-  .rewards
-    Rewards earned
+  .prize_bar
+    %h3 Here's How to Win:
+    %ul.rewards
+      - @rewards.each do |reward|
+        %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class']}"}
+          .circle
+            =reward['count']
+          %p= reward['title'].html_safe
+          .modal
+            %img{src: "#{reward['image']}"}
+            .description
+              =reward['description'].html_safe
+
+    .joined
+      Friends Joined
+    .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
+      .filled{ data: { referral_count: @user.referrals.count}}
+    .rewards
+      Rewards earned
+  
+
   - if @user.referrals.count == 0
     %p.friend_count
       %span No
@@ -39,6 +59,24 @@
       = pluralize(@user.referrals.count, 'friend has', 'friends have')
       joined
   %p Keep checking
+  .grand_prize
+    .description
+      Plus, for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a
+      %span
+        $750 Jetblue travel gift card!
+      .current
+        ="You have referred #{pluralize(@user.referrals.count, 'nurse')} and have been entered into the grand prize drawing #{pluralize(@user.grand_prize_progress, 'time')}"
+    .grand_prize_steps
+      -@grand_prize_steps.each do |step|
+      
+        .grand_prize_step{ class: "#{@user.referrals.count < step['referrals'] ? 'below' : 'above'}"}
+          .amount
+            .circle
+              ="#{step['referrals']} +"
+            %span
+              Registrations
+          .tickets
+            ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
 
 / .share-wrap
 /       %p.why.brandon Don't leave your friends behind

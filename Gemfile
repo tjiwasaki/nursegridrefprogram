@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '3.2.11'
 
@@ -9,6 +10,7 @@ gem 'pg'
 
 gem 'activeadmin'
 gem 'bourbon'
+gem 'rails-assets-RRSSB'
 
 
 # Gems used only for assets and not required

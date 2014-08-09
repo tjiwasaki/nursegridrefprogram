@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
         @user = User.find_by_email(email)
         @rewards = User::REFERRAL_STEPS
-        
+        @grand_prize_steps = User::GRAND_PRIZE_STEPS
         respond_to do |format|
           if !@user.nil?
             @rewards = User::REFERRAL_STEPS
