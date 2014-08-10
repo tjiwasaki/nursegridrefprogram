@@ -164,13 +164,23 @@ body
   margin: 40px 100px
 
 .prize_bar
+  h3
+    text-align: center
+    margin: 20px 0 40px
+    color: $dark_blue
+    font:
+      size: 26px
+  .joined, .rewards_earned
+    color: $dark_blue
+    margin: 10px 0px
+  
   ul.rewards
     +clearfix
     width: 100%
     position: relative
     li.reward
       position: absolute
-      top: 4px
+      top: -14px
       left: 47%
       z-index: 1
 
@@ -182,11 +192,18 @@ body
         text-align: center
         line-height: 36px
         background: #ccc
+      .title
+        font:
+          size: 14px
+        margin-top: 5px
+        text-indent: -40px
       &.selected
         .circle
           background: $blue
       &.prize-two
         left: 94%
+        .title
+          text-indent: -10px
         .modal
           width: 300px
           left: -160px
@@ -204,7 +221,7 @@ body
       .modal
         display: none
         position: absolute
-        top: -490px
+        top: -500px
         left: -165px
         width: 340px
         padding: 12px
@@ -247,10 +264,74 @@ body
 
 
 .grand_prize
+  margin-top: 40px
+  .description
+    text-align: center
+    font:
+      size: 24px
+    line-height: 30px
+    span
+      color: $blue
+      font:
+        weight: 600
+    .current
+      margin-top: 40px
+      span:
+        color: $blue
+  img
+    display: block
+    width: 60%
+    margin: 60px auto
   .grand_prize_step
-    background: pink
+    background: $blue
+    padding: 10px
+    margin-top: 5px
+    +clearfix
+    &.below
+      background: #ddd
+      .circle
+        color: #ddd !important
+      .tickets
+        color: #ddd
+    .amount
+      +clearfix
+      float: left
+      width: 40%
+      .circle
+        float: left
+        background: #fff
+        color: $blue
+        height: 50px
+        width: 50px
+        text-align: center
+        line-height: 50px
+        font:
+          weight: 600
+          size: 18px
+        border-radius: 25px 
+      span
+        display: block
+        float: left
+        color: #fff
+        font:
+          size: 18px
+          weight: 600
+        line-height: 50px
+        margin-left: 10px
+    .tickets
+      +box-sizing(border-box)
+      float: right
+      width: 60%
+      height: 70px
+      margin: -10px
+      background: #fff
+      color: $blue
+      line-height: 70px
+      text-align: center
+      font:
+        size: 18px
+        weight: 600
     &.above
-      background: blue
 
 // form
 //   margin-bottom: 0
