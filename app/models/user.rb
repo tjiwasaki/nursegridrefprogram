@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       {
         'count' => 20,
         "title" => "Gift Card",
-        "description" => "<p>The first 30 nursed to get 20 of their friends to join NurseGrid will receive a $50 gift card to NWScrubs! Happy Shopping</p>",
+        "description" => "<p>The first 30 nurses to get 20 of their friends to join NurseGrid will receive a $50 gift card to NWScrubs! Happy Shopping</p>",
 
         "class" => "prize-two",
         "image" => ActionController::Base.helpers.asset_path("nursegrid_prize_two.jpg")
