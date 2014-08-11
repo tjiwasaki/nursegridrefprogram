@@ -11,7 +11,7 @@ gem 'pg'
 gem 'activeadmin'
 gem 'bourbon'
 gem 'rails-assets-RRSSB'
-
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.
