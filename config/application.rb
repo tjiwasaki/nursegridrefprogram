@@ -58,6 +58,8 @@ module Prelaunchr
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.assets.initialize_on_precompile = false
+    
     config.middleware.use '::Rack::Auth::Basic' do |u, p|
       [u, p] == ["ngrefuser", "ngrefpass"]
     end
