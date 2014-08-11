@@ -58,6 +58,10 @@ module Prelaunchr
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.middleware.use '::Rack::Auth::Basic' do |u, p|
+      [u, p] == ["ngrefuser", "ngrefpass"]
+    end
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
