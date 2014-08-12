@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
     def signup_email(user)
         @user = user
-        @twitter_message = "#Shaving is evolving. Excited for @harrys to launch."
+        @twitter_message = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: nursegrid.com/referrals/?ref=#{@user.referral_code} #nursegrid"
 
         mail(:to => user.email, :subject => "Thanks for signing up!")
     end
