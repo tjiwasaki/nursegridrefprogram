@@ -101,13 +101,15 @@ body
 
 // REFERRAL PAGE ///////////////////////////////////
 .hero.referral_page
-  height: 420px
+  height: 380px
   h1
     font:
       size: 48px
   h2
     font:
       size: 28px
+  .column.right
+    padding-top: 0px
   .share_wrap
     background: #FFF
     border-radius: 5px
@@ -119,12 +121,12 @@ body
     p
       color: $dark_blue
       font:
-        size: 20px
-      line-height: 28px
+        size: 18px
+      line-height: 26px
     .referral_link
       padding: 12px
       border: 1px solid #ccc
-      margin: 40px 40px 20px 40px
+      margin: 30px 40px 20px 40px
       font:
         size: 20px
       color: $blue
@@ -164,6 +166,19 @@ body
   margin: 40px 100px
 
 .prize_bar
+  .progress_bar_wrapper
+    position: relative
+    width: 98%
+    height: 6px
+    background: #ccc
+    border-radius: 3px
+    .filled
+      border-radius: 3px
+      position: absolute
+      top: 0
+      left: 0
+      height: 6px
+      background: $blue
   h3
     text-align: center
     margin: 20px 0 40px
@@ -181,7 +196,7 @@ body
     li.reward
       position: absolute
       top: -14px
-      left: 47%
+      left: 32%
       z-index: 1
 
       .circle
@@ -201,7 +216,7 @@ body
         .circle
           background: $blue
       &.prize-two
-        left: 94%
+        left: 65%
         .title
           text-indent: -10px
         .modal
@@ -214,6 +229,76 @@ body
             width: 300px
             margin-bottom: 10px
           text-align: center
+      &.prize-grand
+        left: 96%
+        .title
+          text-indent: -20px
+          width: 75px
+        .modal
+          width: 300px
+          left: -200px
+          top: -460px
+          &:after
+            left: 210px
+          .description
+            margin-top: 10px
+            span
+              color: $blue
+              font:
+                weight: 600
+            text-align: center
+          .grand_prize_steps
+            +clearfix
+          .grand_prize_step
+            background: $blue
+            padding: 5px
+            margin-bottom: 3px
+            +clearfix
+            &.below
+              background: #ddd
+              .circle
+                color: #ddd !important
+              .tickets
+                color: #ddd
+            .amount
+              +clearfix
+              float: left
+              width: 45%
+              .circle
+                float: left
+                background: #fff
+                color: $blue
+                height: 28px
+                width: 28px
+                text-align: center
+                line-height: 28px
+                font:
+                  size: 12px
+                  weight: 600
+                border-radius: 14px 
+              span
+                display: block
+                float: left
+                color: #fff
+                font:
+                  size: 14px
+                  weight: 600
+                line-height: 28px
+                margin-left: 10px
+            .tickets
+              +box-sizing(border-box)
+              float: right
+              width: 55%
+              height: 38px
+              margin: -5px -5px -5px 0px
+              background: #fff
+              color: $blue
+              line-height: 38px
+              text-align: left
+              text-indent: 10px
+              font:
+                size: 14px
+                weight: 600
 
       &:hover
         .modal
@@ -248,95 +333,13 @@ body
 
           li
             list-style: disc
-  .progress_bar_wrapper
-    position: relative
-    width: 96%
-    height: 6px
-    background: #ccc
-    border-radius: 3px
-    .filled
-      border-radius: 3px
-      position: absolute
-      top: 0
-      left: 0
-      height: 6px
-      background: $blue
-
-
-.grand_prize
+.joined_count
   margin-top: 40px
-  .description
-    text-align: center
-    font:
-      size: 24px
-    line-height: 30px
-    span
-      color: $blue
-      font:
-        weight: 600
-    .current
-      margin-top: 40px
-      span:
-        color: $blue
-  img
-    display: block
-    width: 60%
-    margin: 60px auto
-  .grand_prize_steps
-    float: right
-    width: 90%
-    +clearfix
-  .grand_prize_step
-    background: $blue
-    padding: 10px
-    margin-top: 5px
-    +clearfix
-    &.below
-      background: #ddd
-      .circle
-        color: #ddd !important
-      .tickets
-        color: #ddd
-    .amount
-      +clearfix
-      float: left
-      width: 45%
-      .circle
-        float: left
-        background: #fff
-        color: $blue
-        height: 40px
-        width: 40px
-        text-align: center
-        line-height: 40px
-        font:
-          weight: 600
-          size: 16px
-        border-radius: 20px 
-      span
-        display: block
-        float: left
-        color: #fff
-        font:
-          size: 16px
-          weight: 600
-        line-height: 40px
-        margin-left: 20px
-    .tickets
-      +box-sizing(border-box)
-      float: right
-      width: 55%
-      height: 60px
-      margin: -10px -10px -10px 0px
-      background: #fff
-      color: $blue
-      line-height: 60px
-      text-align: left
-      text-indent: 10px
-      font:
-        size: 18px
-        weight: 600
-    &.above
+  text-align: center
+  font:
+    size: 18px
+    weight: 600
+
 
 // form
 //   margin-bottom: 0

@@ -35,68 +35,44 @@
       - @rewards.each do |reward|
         %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class']}"}
           .circle
-            =reward['count']
+            -if reward['class'] == 'prize-grand'
+              GP
+            -else
+              =reward['count']
           %p.title= reward['title'].html_safe
           .modal
-            %img{src: "#{reward['image']}"}
-            .description
-              =reward['description'].html_safe
+            -if reward['class'] == 'prize-grand'
+              .grand_prize_steps
+                -@grand_prize_steps.each do |step|         
+                  .grand_prize_step{ class: "#{@user.referrals.count < step['referrals'] ? 'below' : 'above'}"}
+                    .amount
+                      .circle
+                        ="#{step['referrals']} +"
+                      %span
+                        Registrations
+                    .tickets
+                      ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
 
-    / .joined
-    /   Friends Joined
+              .description
+                Plus, for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a
+                %span
+                  $750 Jetblue travel gift card!
+            -else
+              %img{src: "#{reward['image']}"}
+              .description
+                =reward['description'].html_safe
+
     .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
       .filled{ data: { referral_count: @user.referrals.count}}
   
-
-  / - if @user.referrals.count == 0
-  /   %p.friend_count
-  /     %span No
-  /     friends have joined...Yet!
-  / - else
-  /   %p.friend_count
-  /     = pluralize(@user.referrals.count, 'friend has', 'friends have')
-  /     joined
-  / %p Keep checking
-  .grand_prize
-    .column.left
-      .description
-        Plus, for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a
-        %span
-          $750 Jetblue travel gift card!
-        .current
-          You have referred 
-          %span
-            ="#{pluralize(@user.referrals.count, 'nurse')}"
-          and have been entered into the grand prize drawing
-          %span
-            ="#{pluralize(@user.grand_prize_progress, 'time')}"
-      =image_tag "nursegrid_application_examples.png"
-    .column.right
-      .grand_prize_steps
-        -@grand_prize_steps.each do |step|
-        
-          .grand_prize_step{ class: "#{@user.referrals.count < step['referrals'] ? 'below' : 'above'}"}
-            .amount
-              .circle
-                ="#{step['referrals']} +"
-              %span
-                Registrations
-            .tickets
-              ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
-
-/ .share-wrap
-/       %p.why.brandon Don't leave your friends behind
-/       %p.title.brandon
-/         INVITE FRIENDS
-/         %br Earn Product
-/         %p.subtitle.brandon
-/           Share your unique link via email, Facebook or Twitter and earn Harry's goods for each friend who signs up.
-/         .copy-link.brandon
-          
-          
-/         - twitter_message = '#Shaving is evolving. Excited for @harrys to launch.'
-/         .social-links
-/           %a.fb{href: "http://www.facebook.com/sharer/sharer.php?u=#{CGI::escape(root_url)}?ref=#{CGI::escape(@user.referral_code)}&title=Harrys", target: "_blank"}
-          
-/           .sep
-/           %a.twit{href: "http://twitter.com/share?url=#{CGI::escape(root_url)}?ref=#{CGI::escape(@user.referral_code)}&text=#{CGI::escape(twitter_message)}", target: "_blank"}
+.joined_count
+  - if @user.referrals.count == 0
+    %p.friend_count
+      %span No
+      friends have joined...Yet!
+  - else
+    %p.friend_count
+      = pluralize(@user.referrals.count, 'friend has', 'friends have')
+      joined
+  %p Keep checking
+  

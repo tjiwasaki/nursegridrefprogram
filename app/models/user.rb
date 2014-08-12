@@ -25,14 +25,14 @@ class User < ActiveRecord::Base
 
         "class" => "prize-two",
         "image" => ActionController::Base.helpers.asset_path("nursegrid_prize_two.jpg")
+      },
+      {
+        'count' => 100,
+        'title' => 'Grand Prize',
+        'description' => "for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a <span>$750 Jetblue travel gift card!</span>.",
+        'class' => 'prize-grand',
+        'image' => ActionController::Base.helpers.asset_path("nursegrid_prize_grand.jpg")
       }
-      # {
-      #   'count' => 100,
-      #   'title' => 'Grand Prize',
-      #   'description' => "for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a <span>$750 Jetblue travel gift card!</span>.",
-      #   'class' => 'prize-grand',
-      #   'image' => ActionController::Base.helpers.asset_path("nursegrid_prize_grand.jpg")
-      # }
     ]
 
     GRAND_PRIZE_STEPS = [
