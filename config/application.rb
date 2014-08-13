@@ -60,9 +60,9 @@ module Prelaunchr
 
     config.assets.initialize_on_precompile = false
     
-    config.middleware.use '::Rack::Auth::Basic' do |u, p|
-      [u, p] == ["ngrefuser", "ngrefpass"]
-    end
+    # config.middleware.use '::Rack::Auth::Basic' do |u, p|
+    #   [u, p] == ["ngrefuser", "ngrefpass"]
+    # end
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
