@@ -13,12 +13,12 @@
       .share_links
         %ul.rrssb-buttons.clearfix
           %li.facebook
-            %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegrid.com"}
+            %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegrid-referral-program.herokuapp.com/"}
               %i.fa.fa-facebook
               %span.text facebook
           %li.twitter
-            -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: nursegrid.com/referrals/?ref=#{@user.referral_code}"
-            -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: nursegrid.com/referrals/?ref=#{@user.referral_code} #nursegrid"
+            -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code}"
+            -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code} #nursegrid"
             %a.popup{href: "http://twitter.com/home?status=#{CGI.escape(twitter_text)}"}
               %i.fa.fa-twitter
               %span.text twitter
