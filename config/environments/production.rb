@@ -64,11 +64,6 @@ Prelaunchr::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  # need to change once live site is launched
-  config.action_mailer.default_url_options = { :host => 'http://nursegridreferral.com' }
-
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
@@ -76,6 +71,13 @@ Prelaunchr::Application.configure do
     :password  => "aeB4ITdq9McZJiXmh7ZtSA"
   }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  # need to change once live site is launched
+  config.action_mailer.default_url_options = { :host => 'http://nursegridreferral.com' }
+
+  
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
