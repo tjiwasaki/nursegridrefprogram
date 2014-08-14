@@ -21,7 +21,7 @@ class UserMailer < MandrillMailer::TemplateMailer
                   subject: 'Welcome to NurseGrid!',
                   to: user.email,
                   vars: {
-                    'REFERRAL_CODE' => "nusregridreferral.com/?#{user.referral_code}"
+                    'REFERRAL_CODE' => "nusregridreferral.com/?ref=#{user.referral_code}"
                   },
                   important: true,
                   inline_css: true
