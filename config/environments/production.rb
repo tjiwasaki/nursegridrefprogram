@@ -75,6 +75,8 @@ Prelaunchr::Application.configure do
   # config.action_mailer.perform_deliveries = true
   # config.action_mailer.raise_delivery_errors = true
   # need to change once live site is launched
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
   config.mandrill_mailer.default_url_options = { :host => 'nursegridreferral.com' }
 
   
