@@ -20,7 +20,8 @@ Prelaunchr::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  config.assets.precompile += %w( application.css active_admin.css )
+  # config.assets.precompile += %w( application.css active_admin.css )
+  config.assets.precompile += %w[active_admin.css active_admin.js application.css]
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -65,6 +66,16 @@ Prelaunchr::Application.configure do
 
   # need to change once live site is launched
   config.action_mailer.default_url_options = { :host => 'http://nursegrid-referrals-program.herokuapp.com' }
+
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :enable_starttls_auto => true,
+    :user_name => "marketing@hct2.com",
+    :password  => "Jonov6540",
+    :domain => 'nursegrid.com'
+  }
+
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
