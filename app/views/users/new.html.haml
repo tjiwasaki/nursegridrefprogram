@@ -24,4 +24,4 @@
     = form_for @user, :url => { :action => "create" } do |f|
       .field
         = f.text_field :email, :placeholder => "enter email"
-        %input{name: "commit", type: "submit", value: "Enter"}
+        %input{name: "commit", type: "submit", value: "Enter", hitType: 'event', eventCategory: 'ReferralRegistration', eventAction: 'RegistrationClick', eventLabel: 'SplashPgReg', class: 'ga'}
