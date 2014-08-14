@@ -1,42 +1,54 @@
+.header
+  .message_container
+    =image_tag "white_logo.png"
+    %span Thank you for signing up!
+  %a{ href: "http://nursegrid.com", target: "_blank" } What is NurseGrid?
 .hero.referral_page
-  .column.left
-    %h1 Nursing Will Never Be the Same
-  .column.right
-    .share_wrap
-      %h2 Don't leave any nurses behind!
-      %h2.last Invite friends & earn rewards
-      %p Share your unique link via email, Facebook
-      %p or Twitter and earn rewards for
-      %p each friend who signs up.
-      .referral_link
-        ="#{root_url}?ref=#{@user.referral_code}"
-      .share_links
-        %ul.rrssb-buttons.clearfix
-          %li.facebook
-            %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegrid-referral-program.herokuapp.com/"}
-              %i.fa.fa-facebook
-              %span.text facebook
-          %li.twitter
-            -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code}"
-            -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code} #nursegrid"
-            %a.popup{href: "http://twitter.com/home?status=#{CGI.escape(twitter_text)}"}
-              %i.fa.fa-twitter
-              %span.text twitter
-          %li.email
-            %a{href: "mailto:?subject=Check%20Out%20NurseGrid&body=#{ERB::Util.url_encode(mail_text)}"}
-              %i.fa.fa-envelope        
-              %span.text email
+  =image_tag "secondary_hero.png", class: "hero_bg"
+  .announcement
+    %h1 
+      %span Nursing Will Never 
+      %span Be the Same
+  =image_tag 'phone.png', class: 'phone_image'
+  .share_wrap
+    %h2 
+      %span Invite nurses.
+      %span Win big.
+    %p Share your unique link via Facebook, Twitter
+    %p or Email and earn sweet prizes!
+    .referral_link
+      ="#{root_url}?ref=#{@user.referral_code}"
+    .share_links
+      %ul.rrssb-buttons.clearfix
+        %li.facebook
+          %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegrid-referral-program.herokuapp.com/"}
+            %i.fa.fa-facebook
+            %span.text facebook
+        %li.twitter
+          -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code}"
+          -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}/?ref=#{@user.referral_code} #nursegrid"
+          %a.popup{href: "http://twitter.com/home?status=#{CGI.escape(twitter_text)}"}
+            %i.fa.fa-twitter
+            %span.text twitter
+        %li.email
+          %a{href: "mailto:?subject=Check%20Out%20NurseGrid&body=#{ERB::Util.url_encode(mail_text)}"}
+            %i.fa.fa-envelope        
+            %span.text email
                   
     
 .prizes
   .prize_bar
-    %h3 Here's How to Win:
+    %h3 Here's how it works
     %ul.rewards
+      %li.reward{ class: "selected user_count" }
+        .circle
+          =@user.referrals.count
+        %p.title Friends Joined
       - @rewards.each do |reward|
         %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class']}"}
           .circle
             -if reward['class'] == 'prize-grand'
-              GP
+              $
             -else
               =reward['count']
           %p.title= reward['title'].html_safe
@@ -54,7 +66,7 @@
                       ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
 
               .description
-                Plus, for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a
+                For every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a
                 %span
                   $750 Jetblue travel gift card!
             -else
@@ -65,14 +77,9 @@
     .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
       .filled{ data: { referral_count: @user.referrals.count}}
   
-.joined_count
-  - if @user.referrals.count == 0
-    %p.friend_count
-      %span No
-      friends have joined...Yet!
-  - else
-    %p.friend_count
-      = pluralize(@user.referrals.count, 'friend has', 'friends have')
-      joined
-  %p Keep checking
+.raffle_count
+  %span 
+    You have
+    =pluralize(@user.grand_prize_progress, 'raffe ticket')
+  %span for the drawing!
   

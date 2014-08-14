@@ -13,14 +13,14 @@ class User < ActiveRecord::Base
     REFERRAL_STEPS = [
       {
         'count' => 10,
-        "title" => "NurseGrid Swag Bag",
+        "title" => "Shirt, Mug & More!",
         "description" => "<h4>Refer 10 friends to NurseGrid and we'll send you:</h4><ul><li>NurseGrid t-shirt</li><li>BPA-free coffee travel mug</li><li>A nurse badge reel</li><li>A set of NurseGrid pens</li></ul>",
         "class" => "prize-one",
         "image" =>  ActionController::Base.helpers.asset_path("nursegrid_prize_one.jpg")
       },
       {
         'count' => 20,
-        "title" => "Gift Card",
+        "title" => "$50 in Scrubs!",
         "description" => "<p>The first 30 nurses to get 20 of their friends to join NurseGrid will receive a $50 gift card to NWScrubs! Happy Shopping</p>",
 
         "class" => "prize-two",
@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
       },
       {
         'count' => 100,
-        'title' => 'Grand Prize',
+        'title' => '$750 JetBlue',
         'description' => "for every nurse you refer to NurseGrid, we will enter you into the grand prize drawing for a chance to win a <span>$750 Jetblue travel gift card!</span>.",
         'class' => 'prize-grand',
         'image' => ActionController::Base.helpers.asset_path("nursegrid_prize_grand.jpg")
@@ -114,6 +114,6 @@ class User < ActiveRecord::Base
     end
 
     def send_welcome_email
-        UserMailer.signup_email(self)
+      UserMailer.signup_email(self)
     end
 end

@@ -1,135 +1,192 @@
 // Global ///////////////////////////////////
+html
+  width: 100%
+  background: #B6BEBF
+  &.refer
+    background: #3D3D3D
 body
   font-family: 'Source Sans Pro', sans-serif
+  width: 100%
 .header
-  background: #FFF
-  padding: 15px 40px
-  a.main_logo
-    background-image: url('nursegrid_logo_blue.png')
-    display: block
-    width: 155px
-    height: 26px
-    text-indent: -9999px      
+  background: $blue
+  padding: 10px
+  color: #fff
+  position: relative
+  +clearfix
+  .message_container
+    +clearfix
+    width: 495px
+    margin: 0 auto
+    img, span
+      display: block
+      float: left
+    img
+      height: 34px
+      margin-right: 20px
+    span
+      color: #fff
+      line-height: 34px
+      font-size: 26px
+  a
+    position: absolute
+    top: 10px
+    right: 10px
+    color: #fff
+    font-size: 12px
+
+
+
+
 
 // MAIN PAGE ///////////////////////////////////
 .hero
+  overflow: hidden
+  position: relative
+  height: auto
   +clearfix
-  background-size: cover
-  background-position: top center
-  background-repeat: no-repeat
-  // background-attachment: fixed
-  background-image: url('nursegrid_main_bg.png')
-  border-bottom: 1px solid #ccc
-  width: 100%
-  height: 360px
-  padding: 40px 0
-.column
-  +box-sizing(border-box)
-  width: 50%
-  float: left
-  padding: 40px
-
-  h1
-    color: #FFF
-    text-align: center
-    font:
-      size: 60px
-      weight: 600
-    margin-bottom: 40px
-
-  p
-    color: #FFF
-    text-align: center
-    font:
-      size: 36px
-  
-  img
-    width: 90%
+  .hero_bg
     display: block
+    float: left
+    width: 100%
+
+  .announcement
+    +box-sizing(border-box)
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 40%
+    text-align: center
+    padding: 20px
+    h1
+      color: $blue
+      font:
+        size: 90px
+        weight: 600
+      line-height: 90px
+    span
+      display: block
+      width: 100%
+    p
+      margin-top: 30px
+      color: $text_grey
+      font:
+        size: 50px
+        weight: 200
+        style: italic
+  .phone_image  
+    display: block
+    position: absolute
+    bottom: 0px
+    left: 10%
+    width: 17%
+  .hand_phone
+    display: block
+    position: absolute
+    bottom: 0px
+    right: 0px
+    width: 35%
+
 .form_wrap
   +clearfix
-  padding: 20px 40px
-  background: $light_blue
+  padding:
+    bottom: 10px
+  background: #B6BEBF
   p
-    color: $dark_blue
+    color: darken($text_grey, 10%)
     text-align: center
     font:
-      size: 26px
-      weight: 300
+      size: 46px
+      weight: 200
     a
   
   form
     .field
       +clearfix
-      margin: 40px auto
-      width: 60%
+      margin: 10px auto
+      width: 40%
     input
       +box-sizing(border-box)
       display: block
       float: left
-      border: none
-      padding: 6px 14px
-      border-radius: 4px
+      border: 2px solid #3F4242
+      padding: 4px 14px
       font:
-        size: 18px
+        size: 32px
     input[type='text']
-      +box-shadow(1px 1px 1px rgba(0,0,0,0.3) inset)
+      background: #CDD5D8
       width: 70%
-      border-radius: 4px 0px 0px 4px
     ::-webkit-input-placeholder
+      text-align: center
       font:
-        weight: 300
+        weight: 200
+        style: italic
     :-moz-placeholder
+      text-align: center
       font:
-        weight: 300
+        weight: 200
+        style: italic
     ::-moz-placeholder
+      text-align: center
       font:
-        weight: 300
+        weight: 200
+        style: italic
     :-ms-input-placeholder
+      text-align: center
       font:
-        weight: 300
+        weight: 200
+        style: italic
 
     input[type='submit']
       +transition(background 0.3s ease)
       color: #FFF
-      background: $orange
+      background: $blue
       cursor: pointer
       width: 30%
-      border-radius: 0px 4px 4px 0px
+      border:
+        left: none
+      color: darken($text_grey, 10%)
+
+      font:
+        weight: 200
       &:hover
         background: $dark_blue
+        color: #fff
 
 // REFERRAL PAGE ///////////////////////////////////
 .hero.referral_page
-  height: 380px
   h1
     font:
-      size: 48px
-  h2
-    font:
-      size: 28px
-  .column.right
-    padding-top: 0px
+      size: 60px
+      weight: 500
+    line-height: 64px
   .share_wrap
-    background: #FFF
-    border-radius: 5px
-    box-shadow: 1px 1px 0px 0px rgba(26,26,26,0.15)
     text-align: center
-    padding: 18px
-    h2.last
-      margin-bottom: 20px
-    p
-      color: $dark_blue
+    position: absolute
+    top: 0px
+    right: 0px
+    width: 50%
+    h2
       font:
-        size: 18px
-      line-height: 26px
+        size: 60px
+      line-height: 64px
+      margin: 40px 0px
+      span
+        display: block
+        width: 100%
+    p
+      color: darken($text_grey, 10%)
+      font:
+        size: 28px
+        style: italic
+      line-height: 36px
     .referral_link
       padding: 12px
-      border: 1px solid #ccc
+      border: 2px solid #565656
       margin: 30px 40px 20px 40px
       font:
         size: 20px
-      color: $blue
+      color: #565656
+      background: #fff
     .share_links
       ul
         +clearfix
@@ -144,47 +201,35 @@ body
             color: #FFF
             display: block
             border-radius: 4px
-            padding: 6px 10px
+            padding: 10px
+            background: $blue
+            &:hover
+              background: $dark_blue
           &.facebook
             margin-left: 2.5%
-            a
-              background: $facebook
-              &:hover
-                background: darken($facebook, 20%)
-          &.twitter
-            a
-              background: $twitter
-              &:hover
-                background: darken($twitter, 20%)
           &.email
             margin-right: 0%
-            a
-              background: $orange
-              &:hover
-                background: darken($orange, 20%)
 .prizes
-  margin: 40px 100px
+  margin: 10px 100px
 
 .prize_bar
   .progress_bar_wrapper
     position: relative
     width: 98%
-    height: 6px
-    background: #ccc
-    border-radius: 3px
+    height: 10px
+    background: #707070
     .filled
-      border-radius: 3px
       position: absolute
       top: 0
       left: 0
-      height: 6px
-      background: $blue
+      height: 10px
+      background: $orange
   h3
     text-align: center
-    margin: 20px 0 40px
-    color: $dark_blue
+    margin-bottom: 20px
+    color: #ccc
     font:
-      size: 26px
+      size: 36px
   .joined, .rewards_earned
     color: $dark_blue
     margin: 10px 0px
@@ -200,21 +245,30 @@ body
       z-index: 1
 
       .circle
-        width: 36px
-        height: 36px
+        width: 40px
+        height: 40px
         color: #FFF
-        border-radius: 18px
+        border-radius: 20px
         text-align: center
-        line-height: 36px
+        line-height: 40px
         background: #ccc
-      .title
+        color: #252525
         font:
-          size: 14px
+          size: 24px
+      .title
+        color: #ccc
+
+        font:
+          size: 22px
+          style: italic
         margin-top: 5px
         text-indent: -40px
       &.selected
         .circle
-          background: $blue
+          background: $orange
+          color: #fff
+      &.user_count
+        left: 0%
       &.prize-two
         left: 65%
         .title
@@ -223,8 +277,6 @@ body
           width: 300px
           left: -160px
           top: -340px
-          &:after
-            left: 168px
           img
             width: 300px
             margin-bottom: 10px
@@ -232,14 +284,12 @@ body
       &.prize-grand
         left: 96%
         .title
-          text-indent: -20px
-          width: 75px
+          text-indent: -35px
+          width: 90px
         .modal
           width: 300px
           left: -200px
           top: -460px
-          &:after
-            left: 210px
           .description
             margin-top: 10px
             span
@@ -311,18 +361,7 @@ body
         width: 340px
         padding: 12px
         background: #fff
-        border-radius: 5px
-        box-shadow: 0px 0px 6px rgba(0,0,0,0.4)
-        &:after
-          content: ""
-          +transform(rotate(45deg))
-          background: #fff
-          width: 14px
-          height: 14px
-          position: absolute
-          bottom: -7px
-          left: 175px
-          box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
+        box-shadow: 1px 1px 5px rgba(0,0,0,0.4)
         img
           width: 340px
           display: block
@@ -333,515 +372,199 @@ body
 
           li
             list-style: disc
-.joined_count
-  margin-top: 40px
+.raffle_count
+  margin-top: 60px
   text-align: center
   font:
-    size: 18px
-    weight: 600
+    size: 24px
+    style: italic
+    weight: 300
+  color: $orange
+  span
+    display: block
+    width: 100%
+
+// Mobile Overrrides ///////////////////////////////////
+@media only screen and (min-width: 320px) and (max-width: 720px)
+  // Small screen, non-retina
+
+  // main overrides
+  .hero.main_page
+    .hero_bg
+      width: 400%
+      margin-left: -150%
+    .announcement
+      width: 100%
+      h1
+        font:
+          size: 60px
+        line-height: 60px
+      p
+        font:
+          size: 40px
+
+    .hand_phone
+      width: 80%
+  .form_wrap
+    form
+      .field
+        width: 90%
+
+  // referral overrides
+  .header
+    .message_container
+      span
+        display: none
+  .hero.referral_page
+    .hero_bg
+      width: 350%
+      margin-left: -137.5%
+    .announcement
+      display: none
+    .phone_image
+      display: none
+    .share_wrap
+      width: 100%
+      p
+        font:
+          size: 20px
+  .prizes
+    margin: 10px 30px 10px 10px
+  .prize_bar
+    h3
+      font:
+        size: 24px
+
+    ul.rewards
+      li.reward
+        .title
+          font:
+            size: 12px
+        &:hover
+          .modal
+            display: none
+        &.user_count
+          .title
+            text-indent: -5px
+        &.prize-one
+          .title
+            text-indent: -20px
 
 
-// form
-//   margin-bottom: 0
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min-resolution: 192dpi) and (min-width: 320px), only screen and (min-resolution: 2dppx) and (min-width: 320px)
+  // Small screen, retina, stuff to override above media query
 
-// .clearfix
-//   &:before
-//     content: " "
-//     // 1
-//     display: table
-//     // 2
-//   &:after
-//     content: " "
-//     // 1
-//     display: table
-//     // 2
-//     clear: both
+@media only screen and (min-width: 721px) and (max-width: 800px)
+  // stop gap for medium/small
+  .hero.main_page
+    .announcement
+      h1
+        font:
+          size: 50px
+        line-height: 50px
+      p
+        font:
+          size: 26px
 
-// // Home
+  // referral overrides
+  .hero.referral_page
+    .hero_bg
+      width: 150%
+      margin-left: -37.5%
+    .announcement
+      width: 50%
+      h1
+        font:
+          size: 40px
+        line-height: 40px
+    .phone_image
+      width: 30%
+    .share_wrap
+      h2
+        font:
+          size: 40px
+        line-height: 40px
+      p
+        font:
+          size: 20px
+        line-height: 20px
+      .share_links
+        ul
+          li
+            .text
+              display: none
+  .prizes
+    margin: 10px 50px 10px 30px
+  .prize_bar
+    h3
+      font:
+        size: 28px
 
-// html.home
-//   background: #EDECEA
+    ul.rewards
+      li.reward
+        // .title
+        //   font:
+        //     size: 12px
+        &:hover
+          // .modal
+          //   display: none
+        &.user_count
+          .title
+            text-indent: -7px
+        &.prize-grand
+          .title
+            text-indent: -42px
 
-// #home
-//   padding-bottom: 50px
-//   .page-content
-//     width: 1400px
-//     margin: 0 auto
-//   .hero
-//     width: 100%
-//     height: 446px
-//     background: url(/assets/home/hero.jpg) center center no-repeat
-//     background-size: 1600px 446px
-//     overflow: hidden
-//     position: relative
-//     letter-spacing: .09em
-//     margin: 0 auto
-//     .large
-//       font-weight: bold
-//       font-size: 40px
-//       color: #074E6F
-//       text-transform: uppercase
-//       margin: 85px 0 0 136px
-//       position: relative
-//       z-index: 2
-//       letter-spacing: 2px
-//     .small
-//       font-weight: bold
-//       color: #955F5D
-//       font-size: 18px
-//       margin: 10px 0 0 115px
-//       line-height: 30px
-//       position: relative
-//       z-index: 2
-//       text-transform: uppercase
-//       text-align: center
-//       width: 375px
-//       letter-spacing: 1px
-//   .form-wrap
-//     height: 80px
-//     width: 411px
-//     margin: 23px auto 0
-//     .key
-//       width: 46px
-//       height: 19px
-//       margin: 0 auto
-//       background: url(/assets/home/key.png) 0 0 no-repeat
-//       background-size: 46px 19px
-//     .byline
-//       font-size: 15px
-//       text-transform: uppercase
-//       color: #074E6F
-//       text-align: center
-//       font-weight: bold
-//       letter-spacing: 2px
-//       margin: 15px 0
-//     .email
-//       float: left
-//       font-size: 13px
-//       padding: 8px 0 8px 10px
-//       border: 1px solid #074E6F
-//       width: 256px
-//       outline: none
-//       letter-spacing: 1px
-//     .submit
-//       width: 143px
-//       background: #074E6F
-//       float: left
-//       height: 37px
-//       line-height: 37px
-//       color: #FFF
-//       font-size: 13px
-//       text-transform: uppercase
-//       border: 0
-//       letter-spacing: 2px
-//     &.ended
-//       width: 500px
-//       margin-top: 27px
-//       .thanks
-//         text-transform: uppercase
-//         font-weight: 500
-//         color: #074e6f
-//         text-align: center
-//         font-size: 22px
-//         letter-spacing: 1px
-//         line-height: 36px
-//         margin-bottom: 14px
-//       .compiling
-//         text-transform: uppercase
-//         letter-spacing: 1px
-//         font-size: 14px
-//         line-height: 30px
-//         color: #555556
-//         text-align: center
-//         font-weight: 500
-//         margin-bottom: 24px
-//       .go-to
-//         font-style: italic
-//         font-size: 16px
-//         letter-spacing: 1px
-//         text-align: center
-//         margin-bottom: 25px
-//         a
-//           color: #074e6f
-//           font-size: 19px
-//           font-weight: bold
-//           text-transform: uppercase
-//           font-style: normal
-//           text-decoration: none
-//           &:hover
-//             color: #955F5D
-//       .again
-//         font-weight: 500
-//         color: #555556
-//         text-transform: uppercase
-//         font-size: 14px
-//         text-align: center
-//       width: 500px
-//       margin-top: 27px
-//       .thanks
-//         text-transform: uppercase
-//         font-weight: 500
-//         color: #074e6f
-//         text-align: center
-//         font-size: 22px
-//         letter-spacing: 1px
-//         line-height: 36px
-//         margin-bottom: 14px
-//       .compiling
-//         text-transform: uppercase
-//         letter-spacing: 1px
-//         font-size: 14px
-//         line-height: 30px
-//         color: #555556
-//         text-align: center
-//         font-weight: 500
-//         margin-bottom: 24px
-//       .go-to
-//         font-style: italic
-//         font-size: 16px
-//         letter-spacing: 1px
-//         text-align: center
-//         margin-bottom: 25px
-//         a
-//           color: #074e6f
-//           font-size: 19px
-//           font-weight: bold
-//           text-transform: uppercase
-//           font-style: normal
-//           text-decoration: none
-//           &:hover
-//             color: #955F5D
-//       .again
-//         font-weight: 500
-//         color: #555556
-//         text-transform: uppercase
-//         font-size: 14px
-//         text-align: center
+@media only screen and (min-width: 801px) and (max-width: 1249px)
+  // referral overrides
+  .hero.referral_page
+    .hero_bg
+      width: 150%
+      margin-left: -37.5%
+    
+    .share_wrap
+      h2
+        font:
+          size: 36px
+        line-height: 36px
+      p
+        font:
+          size: 20px
+        line-height: 20px
+      .share_links
+        ul
+          li
+            .text
+              display: none
+@media only screen and (min-width: 801px) and (max-width: 1299px)
+  // Medium screen, non-retina
+  .hero.main_page
+    .announcement
+      h1
+        font:
+          size: 60px
+        line-height: 60px
+      p
+        font:
+          size: 30px
+  .form_wrap
+    form
+      .field
+        width: 60%
 
-// // Refer a friend page
+  
 
-// .wf-loading .brandon
-//   visibility: hidden
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 700px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 700px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 700px), only screen and (min-device-pixel-ratio: 2) and (min-width: 700px), only screen and (min-resolution: 192dpi) and (min-width: 700px), only screen and (min-resolution: 2dppx) and (min-width: 700px)
+  // Medium screen, retina, stuff to override above media query
+  .hero
+    
 
-// .brandon
-//   font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif
+@media only screen and (min-width: 1300px)
+  // Large screen, non-retina
 
-// #refer
-//   background: #FFF
-//   .page-content
-//     width: 1120px
-//     margin: 0 auto
-//     z-index: 0
-//     position: relative
-//   .header
-//     height: 50px
-//     background: #074E6F
-//     width: 100%
-//     overflow: hidden
-//     z-index: 1
-//     position: relative
-//     .content
-//       width: 315px
-//       margin: 0 auto
-//     p
-//       float: left
-//       color: #FFF
-//       font-weight: 500
-//       text-transform: uppercase
-//       line-height: 50px
-//     .byline
-//       font-size: 14px
-//     .logo
-//       font-weight: normal
-//       font-size: 0
-//       line-height: 0
-//       margin-right: 14px
-//       letter-spacing: 1px
-//       background: url(/assets/refer/logo.png) 0 0 no-repeat
-//       background-size: 106px 19px
-//       height: 19px
-//       width: 106px
-//       margin-top: 15px
-//   .hero
-//     background: #F1F0EE
-//     height: 391px
-//     overflow: hidden
-//   .mammoth
-//     width: 612px
-//     height: 394px
-//     background: url(/assets/refer/mammoth.png) 0 0 no-repeat
-//     background-size: 610px 394px
-//     overflow: hidden
-//     margin-top: 15px
-//     float: left
-//     .need
-//       color: #FFF
-//       font-size: 38px
-//       text-transform: uppercase
-//       font-weight: bold
-//       margin: 102px 0 0 72px
-//       display: block
-//       line-height: 56px
-//       letter-spacing: 4px
-//       text-align: center
-//       width: 284px
-//   .share-wrap
-//     float: right
-//     width: 400px
-//     text-align: center
-//     text-transform: uppercase
-//     letter-spacing: .13em
-//     margin-right: 60px
-//     .why
-//       font-size: 16px
-//       color: #555556
-//       font-weight: bold
-//       margin-top: 42px
-//     .title
-//       font-size: 30px
-//       line-height: 40px
-//       text-transform: uppercase
-//       font-weight: bold
-//       color: #074E6F
-//       margin-top: 18px
-//       letter-spacing: .13em
-//     .subtitle
-//       color: #565656
-//       font-size: 14px
-//       text-transform: none
-//       margin-top: 15px
-//     .copy-link
-//       border: 1px solid #D1D0C7
-//       background: #FFF
-//       padding: 10px 0
-//       width: 320px
-//       text-transform: none
-//       font-size: 11px
-//       margin: 20px auto 0
-//     .social-links
-//       width: 120px
-//       height: 37px
-//       margin: 25px auto 0
-//       text-align: center
-//       a, div
-//         display: inline-block
-//       .fb
-//         background: url(/assets/refer/fb.png)
-//         background-size: 27px 27px
-//         width: 27px
-//         height: 27px
-//       .twit
-//         background: url(/assets/refer/twit.png)
-//         background-size: 27px 27px
-//         width: 27px
-//         height: 27px
-//       .sep
-//         height: 28px
-//         width: 1px
-//         background: #BAB9BA
-//         margin: 0 20px
-//   .prizes
-//     width: 100%
-//     background: #FFF
-//     border-top: 1px solid #D2D1C8
-//     padding-bottom: 100px
-//     .page-content
-//       position: relative
-//     .callout
-//       text-align: center
-//       font-size: 16px
-//       color: #074E6F
-//       font-weight: bold
-//       margin: 20px 0 0 0
-//       letter-spacing: 2px
-//       text-transform: uppercase
-//     .progress
-//       height: 4px
-//       width: 100%
-//       background: url(/assets/refer/progress-bg.png) 0 0 repeat-x
-//       background-size: 1px 4px
-//       position: absolute
-//       top: 100px
-//       z-index: 0
-//       .mover
-//         position: absolute
-//         top: 0
-//         left: 0
-//         .bar
-//           background: url(/assets/refer/progress-done.png) 0 0 repeat-x
-//           width: 165px
-//           height: 4px
-//           -webkit-background-size: 1px 4px
-//           background-size: 1px 4px
-//   .prize-two .progress .mover .bar
-//     width: 312px
-//   .prize-three .progress .mover .bar
-//     width: 566px
-//   .prize-four .progress .mover .bar
-//     width: 820px
-//   .prize-five .progress .mover .bar
-//     width: 1120px
-//   .prizes
-//     ul.products
-//       height: 105px
-//       width: 100%
-//       margin-top: 30px
-//       position: relative
-//       z-index: 1
-//     .products li
-//       &.title
-//         height: 100%
-//         text-transform: uppercase
-//         color: #074E6F
-//         font-weight: 500
-//         font-size: 14px
-//         float: left
-//         margin-right: 68px
-//         width: 165px
-//         font-weight: bold
-//         .friends
-//           margin-top: 7px
-//           letter-spacing: 2px
-//         .rewards
-//           margin-top: 45px
-//           letter-spacing: 2px
-//       &.product
-//         height: 100%
-//         color: #074E6F
-//         width: 125px
-//         margin-right: 129px
-//         float: left
-//         position: relative
-//         .circle
-//           height: 30px
-//           width: 30px
-//           border-radius: 15px
-//           border: 1px solid #DAD9D2
-//           text-align: center
-//           line-height: 30px
-//           color: #868282
-//           overflow: hidden
-//           background: #F1F0EE
-//           font-weight: bold
-//           margin: 0 auto
-//         .sep
-//           width: 12px
-//           height: 2px
-//           background: transparent
-//           margin: 13px auto 13px
-//         .caret
-//           width: 100%
-//           height: 10px
-//           background: url(/assets/refer/caret.png) center center no-repeat
-//           background-size: 16px 10px
-//           position: absolute
-//           bottom: -15px
-//         &.selected .caret
-//           background: url(/assets/refer/caret-selected.png) center center no-repeat
-//           background-size: 16px 10px
-//         p
-//           text-align: center
-//           font-weight: 500
-//         &:last-child, &.last
-//           margin-right: 0
-//         &.selected
-//           .circle
-//             background: #995F5E !important
-//             border-color: #995F5E !important
-//             color: #FFF !important
-//           p
-//             color: #995F5E !important
-//         &:hover .circle
-//           color: #FFF
-//           background: #074E6F
-//           border-color: #074E6F
-//         .tooltip
-//           height: 254px
-//           width: 190px
-//           border: 4px solid #074E6F
-//           position: absolute
-//           top: -285px
-//           left: -32px
-//           display: none
-//           background: #FFF
-//           img
-//             margin: 0 auto
-//             display: block
-//         &:hover .tooltip
-//           display: block
-//     p
-//       &.place
-//         text-align: center
-//         font-size: 16px
-//         color: #074E6F
-//         width: 100%
-//         font-weight: 500
-//         margin-top: 30px
-//         span
-//           color: #995F5E
-//       &.check
-//         text-align: center
-//         font-size: 16px
-//         color: #858181
-//         width: 100%
-//         font-weight: 500
-//         margin-top: 5px
-//       &.ship
-//         text-align: center
-//         font-size: 16px
-//         color: #858181
-//         width: 100%
-//         font-weight: 500
-//         margin-top: 50px
-//     a.policy
-//       text-align: center
-//       font-size: 12px
-//       color: #CCCCCC
-//       width: 100%
-//       font-weight: 500
-//       margin-top: 5px
-//       display: block
-//       text-decoration: none
+    
 
-// // RETINA
-
-// @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)
-//   #home
-//     .hero
-//       background: url(/assets/home/hero@2x.jpg) center center no-repeat
-//       background-size: 1600px 446px
-//     .form-wrap .key
-//       background: url(/assets/home/key@2x.png) 0 0 no-repeat
-//       background-size: 46px 19px
-//   #refer
-//     .header .logo
-//       background: url(/assets/refer/logo@2x.png) 0 0 no-repeat
-//       background-size: 106px 19px
-//     .mammoth
-//       background: url(/assets/refer/mammoth@2x.png) 0 0 no-repeat
-//       background-size: 610px 394px
-//     .share-wrap .social-links
-//       .fb
-//         background: url(/assets/refer/fb@2x.png)
-//         background-size: 27px 27px
-//       .twit
-//         background: url(/assets/refer/twit@2x.png)
-//         background-size: 27px 27px
-//     .prizes
-//       .progress
-//         background: url(/assets/refer/progress-bg@2x.png) 0 0 repeat-x
-//         background-size: 1px 4px
-//         .mover
-//           .bar
-//             background: url(/assets/refer/progress-done@2x.png) 0 0 repeat-x
-//             background-size: 1px 4px
-//           .razor
-//             background: url(/assets/refer/razor@2x.png) 0 0 no-repeat
-//             background-size: 82px 23px
-//       .products li.product
-//         .caret
-//           background: url(/assets/refer/caret@2x.png) center center no-repeat
-//           background-size: 16px 10px
-//         &.selected .caret
-//           background: url(/assets/refer/caret-selected@2x.png) center center no-repeat
-//           background-size: 16px 10px
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 1300px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min-resolution: 192dpi) and (min-width: 1300px), only screen and (min-resolution: 2dppx) and (min-width: 1300px)
+  // Large screen, retina, stuff to override above media query
+  .hero
+    

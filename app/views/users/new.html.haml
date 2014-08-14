@@ -1,12 +1,14 @@
-.hero
-  .column.left
-    %h1 NurseGrid is Coming
+.hero.main_page
+  =image_tag "main_hero.png", class: 'hero_bg'
+  .announcement
+    %h1 
+      %span NurseGrid 
+      %span is just days 
+      %span away...
     %p
-      Nurses deserve a tool built
-    %p
-      just for them and it's finally here.
-  .column.right
-    =image_tag "nursegrid_application_examples.png"
+      %span An app for nurses, 
+      %span by nurses.
+  =image_tag "hand_phone.png", class: 'hand_phone'
 .form_wrap
   - if Rails.application.config.ended
     %p
@@ -18,9 +20,8 @@
       %a{href: "http://nursegrid.com"} www.nursegrid.com
     %p ThanksAgain!    
   - else
-    %p Invite friends and earn
-    %p NurseGrid rewards today.
+    %p Be the first to know.
     = form_for @user, :url => { :action => "create" } do |f|
       .field
-        = f.text_field :email, :placeholder => "Enter Email"
-        %input{name: "commit", type: "submit", value: "Get Started"}
+        = f.text_field :email, :placeholder => "enter email"
+        %input{name: "commit", type: "submit", value: "Enter"}
