@@ -64,6 +64,8 @@ Prelaunchr::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
   # need to change once live site is launched
   config.action_mailer.default_url_options = { :host => 'http://nursegridreferral.com' }
 
@@ -71,7 +73,7 @@ Prelaunchr::Application.configure do
     :address   => "smtp.mandrillapp.com",
     :port      => 587,
     :user_name => "marketing@hct2.com",
-    :password  => "aeB4ITdq9McZJiXmh7ZtSA"\
+    :password  => "aeB4ITdq9McZJiXmh7ZtSA"
   }
 
 

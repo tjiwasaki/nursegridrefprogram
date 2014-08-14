@@ -3,7 +3,7 @@ html
   width: 100%
   background: #B6BEBF
   &.refer
-    background: #3D3D3D
+    background: #fff
 body
   font-family: 'Source Sans Pro', sans-serif
   width: 100%
@@ -154,11 +154,13 @@ body
 
 // REFERRAL PAGE ///////////////////////////////////
 .hero.referral_page
+  
   h1
     font:
       size: 60px
       weight: 500
     line-height: 64px
+
   .share_wrap
     text-align: center
     position: absolute
@@ -211,30 +213,29 @@ body
             margin-right: 0%
 .prizes
   margin: 10px 100px
-
 .prize_bar
   .progress_bar_wrapper
     position: relative
     width: 96%
-    height: 10px
-    background: #707070
+    height: 8px
+    background: #ccc
     margin-left: 20px
+    border-radius: 4px
+    overflow: hidden
     .filled
       position: absolute
       top: 0
       left: 0
-      height: 10px
-      background: $orange
+      height: 8px
+      border-radius: 4px
+      background: $blue
   h3
     text-align: center
     margin-bottom: 20px
-    color: #ccc
+    color: $text_grey
     font:
-      size: 36px
-  .joined, .rewards_earned
-    color: $dark_blue
-    margin: 10px 0px
-  
+      size: 32px
+      weight: 200
   ul.rewards
     +clearfix
     width: 100%
@@ -246,16 +247,17 @@ body
       z-index: 1
 
       .circle
-        width: 40px
-        height: 40px
+        width: 36px
+        height: 36px
         color: #FFF
-        border-radius: 20px
+        border-radius: 38px
         text-align: center
-        line-height: 40px
+        line-height: 36px
         background: #ccc
         color: #252525
         font:
-          size: 24px
+          size: 20px
+          weight: 300
       .title
         color: #ccc
 
@@ -266,18 +268,21 @@ body
         text-indent: -40px
       &.selected
         .circle
-          background: $orange
+          background: $blue
           color: #fff
       &.user_count
         left: 0%
+      &.prize-one
+        .modal
+          top: -380px
       &.prize-two
         left: 65%
         .title
           text-indent: -10px
         .modal
           width: 300px
-          left: -160px
-          top: -340px
+          left: -140px
+          top: -95px
           img
             width: 300px
             margin-bottom: 10px
@@ -290,7 +295,7 @@ body
         .modal
           width: 300px
           left: -200px
-          top: -370px
+          top: -450px
           .description
             margin-top: 10px
             span
@@ -306,11 +311,11 @@ body
             margin-bottom: 3px
             +clearfix
             &.below
-              background: #ddd
+              background: #aaa
               .circle
-                color: #ddd !important
+                color: #aaa !important
               .tickets
-                color: #ddd
+                color: #aaa
             .amount
               +clearfix
               float: left
@@ -447,6 +452,9 @@ body
         &.user_count
           .title
             text-indent: -5px
+        &.prize-grand
+          .title
+            width: 55px
         &.prize-one
           .title
             text-indent: -20px
@@ -513,7 +521,9 @@ body
           .title
             text-indent: -7px
         &.prize-grand
+
           .title
+            width: 70px
             text-indent: -42px
 
 @media only screen and (min-width: 801px) and (max-width: 1249px)

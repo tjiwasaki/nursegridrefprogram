@@ -40,10 +40,10 @@
   .prize_bar
     %h3 Here's how it works
     %ul.rewards
-      %li.reward{ class: "selected user_count" }
-        .circle
-          =@user.referrals.count
-        %p.title Friends Joined
+      / %li.reward{ class: "selected user_count" }
+      /   .circle
+      /     =@user.referrals.count
+      /   %p.title Friends Joined
       - @rewards.each do |reward|
         %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class']}"}
           .circle
@@ -64,18 +64,29 @@
                         Registrations
                     .tickets
                       ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
-
-            -else
-              %img{src: "#{reward['image']}"}
               .description
                 =reward['description'].html_safe
+
+
+            -else
+              -if reward['class'] == 'prize-one'
+                %img{src: "#{reward['image']}"}
+              -if reward['class'] == 'prize-two'
+                .description
+                  =reward['description'].html_safe
 
     .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
       .filled{ data: { referral_count: @user.referrals.count}}
   
 .raffle_count
+  %span
+    =pluralize(@user.referrals.count, 'friend has', 'friends have')
+    joined
+    -if @user.referrals.count == 0
+      \... keep checking!
+
   %span 
     You have
-    =pluralize(@user.grand_prize_progress, 'raffe ticket')
-  %span for the drawing!
+    =pluralize(@user.grand_prize_progress, 'raffle ticket')
+    for the drawing!
   
