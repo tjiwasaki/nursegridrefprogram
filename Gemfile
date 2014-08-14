@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'rails-assets-RRSSB'
 gem 'newrelic_rpm'
 gem 'haml-rails'
+gem 'mandrill_mailer'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
