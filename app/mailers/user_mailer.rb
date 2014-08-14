@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-    default from: "NurseGrid Marketing <marketing@nursegrid.com>"
+    default from: "NurseGrid Marketing <marketing@nursegridreferral.com>"
 
     def signup_email(user)
         @user = user

@@ -65,7 +65,7 @@ Prelaunchr::Application.configure do
   config.active_support.deprecation = :notify
 
   # need to change once live site is launched
-  config.action_mailer.default_url_options = { :host => 'http://nursegrid-referrals-program.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://nursegridreferral.com' }
 
   config.action_mailer.smtp_settings = {
     :address   => "smtp.mandrillapp.com",
