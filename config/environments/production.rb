@@ -15,7 +15,7 @@ Prelaunchr::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -72,7 +72,7 @@ Prelaunchr::Application.configure do
     :port      => 587,
     :enable_starttls_auto => true,
     :user_name => "marketing@hct2.com",
-    :password  => "Jonov6540",
+    :password  => "aeB4ITdq9McZJiXmh7ZtSA",
     :domain => 'nursegrid.com'
   }
 
