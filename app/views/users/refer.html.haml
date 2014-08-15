@@ -25,8 +25,9 @@
             %i.fa.fa-facebook
             %span.text facebook
         %li.twitter
-          -mail_text = "I can't wait for NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}?ref=#{@user.referral_code}"
-          -twitter_text = "I can't wait for @NurseGrid to launch. It's an app for nurses, by nurses. Join today nurse friends: #{root_url}?ref=#{@user.referral_code} #nursegrid"
+          -mail_text = "I can't wait for NurseGrid to launch! It's an app for nurses, by nurses. Join me, nurse friends: #{root_url}?ref=#{@user.referral_code}"
+          -twitter_text = "I can't wait for @NurseGrid to launch! It's an app for nurses, by nurses. Join today, #nurse friends: #{root_url}?ref=#{@user.referral_code} #nursegrid"
+
           %a.popup{href: "http://twitter.com/home?status=#{CGI.escape(twitter_text)}"}
             %i.fa.fa-twitter
             %span.text twitter
@@ -45,7 +46,7 @@
       /     =@user.referrals.count
       /   %p.title Friends Joined
       - @rewards.each do |reward|
-        %li.reward{ class: "#{reward['selected'] ? 'selected' : ''} #{reward['class']}"}
+        %li.reward{ class: "#{@user.referrals.count >= reward['count'] ? 'selected' : ''} #{reward['class']}"}
           .circle
             -if reward['class'] == 'prize-grand'
               $
@@ -74,6 +75,9 @@
               -if reward['class'] == 'prize-two'
                 .description
                   =reward['description'].html_safe
+                  %span.remaining
+                    =reward['remaining']
+                    of 30 remaining
 
     .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
       .filled{ data: { referral_count: @user.referrals.count}}

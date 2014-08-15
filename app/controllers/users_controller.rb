@@ -28,7 +28,7 @@ class UsersController < ApplicationController
             )
           end
 
-          if cur_ip.count > 2
+          if cur_ip.count > 40
             return redirect_to root_path
           else
             cur_ip.count = cur_ip.count + 1
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
           puts '------------'
 
           if !@referred_by.nil?
-              @user.referrer = @referred_by
+            @user.referrer = @referred_by
           end
 
           @user.save
@@ -79,7 +79,6 @@ class UsersController < ApplicationController
 
             @rewards.reverse_each do |reward|
               if reward["count"] <= @user.referrals.count && @current_reward.nil?
-                reward["selected"] = true
                 @current_reward = reward
               else
                 reward["selected"] = false
