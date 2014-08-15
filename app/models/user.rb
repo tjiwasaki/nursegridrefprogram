@@ -103,12 +103,15 @@ class User < ActiveRecord::Base
     
     def check_prize_level
       prize_two = Prize.find_by_prize_count(20)
-      if self.referrals.count == 29
-        if prize_two.remaining > 0
+      if prize_two.remaining > 0
+        if self.referrals.count == 29
+          self.prize_two_winner = true
+          self.save
           prize_two.remaining -=1
           prize_two.save
         end
       end
+      
     end
 
     private
