@@ -28,7 +28,7 @@ class UsersController < ApplicationController
             )
           end
 
-          if cur_ip.count > 40
+          if cur_ip.count > 2
             return redirect_to root_path
           else
             cur_ip.count = cur_ip.count + 1
