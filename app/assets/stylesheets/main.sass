@@ -466,8 +466,74 @@ body
             text-indent: -20px
 
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min-resolution: 192dpi) and (min-width: 320px), only screen and (min-resolution: 2dppx) and (min-width: 320px)
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 900px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 900px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px) and (max-width: 900px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 900px), only screen and (min-resolution: 192dpi) and (min-width: 320px) and (max-width: 900px), only screen and (min-resolution: 2dppx) and (min-width: 320px) and (max-width: 900px)
   // Small screen, retina, stuff to override above media query
+  body.mobile
+
+    // main overrides
+    .hero.main_page
+      .hero_bg
+        width: 400%
+        margin-left: -150%
+      .announcement
+        width: 100%
+        h1
+          font:
+            size: 60px
+          line-height: 60px
+        p
+          font:
+            size: 40px
+
+      .hand_phone
+        width: 80%
+    .form_wrap
+      form
+        .field
+          width: 90%
+
+    // referral overrides
+    .header
+      .message_container
+        span
+          display: none
+    .hero.referral_page
+      .hero_bg
+        width: 350%
+        margin-left: -137.5%
+      .announcement
+        display: none
+      .phone_image
+        display: none
+      .share_wrap
+        width: 100%
+        p
+          font:
+            size: 20px
+    .prizes
+      margin: 10px 30px 10px 10px
+    .prize_bar
+      h3
+        font:
+          size: 24px
+
+      ul.rewards
+        li.reward
+          .title
+            font:
+              size: 12px
+          &:hover
+            .modal
+              display: none
+          &.user_count
+            .title
+              text-indent: -5px
+          &.prize-grand
+            .title
+              width: 55px
+          &.prize-one
+            .title
+              text-indent: -20px
 
 @media only screen and (min-width: 721px) and (max-width: 800px)
   // stop gap for medium/small
