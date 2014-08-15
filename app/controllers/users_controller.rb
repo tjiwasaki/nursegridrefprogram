@@ -47,6 +47,7 @@ class UsersController < ApplicationController
 
           if !@referred_by.nil?
             @user.referrer = @referred_by
+            @user.referrer.check_prize_level
           end
 
           @user.save
@@ -70,22 +71,10 @@ class UsersController < ApplicationController
         @is_mobile = mobile_device?
 
         @user = User.find_by_email(email)
-        @rewards = User::REFERRAL_STEPS
+        @prizes = Prize.order('prize_count ASC')
         @grand_prize_steps = User::GRAND_PRIZE_STEPS
         respond_to do |format|
           if !@user.nil?
-            @rewards = User::REFERRAL_STEPS
-            @current_reward = nil
-
-            @rewards.reverse_each do |reward|
-              if reward["count"] <= @user.referrals.count && @current_reward.nil?
-                @current_reward = reward
-              else
-                reward["selected"] = false
-              end
-            end
-
-
 
             format.html #refer.html.erb
           else

@@ -45,16 +45,16 @@
       /   .circle
       /     =@user.referrals.count
       /   %p.title Friends Joined
-      - @rewards.each do |reward|
-        %li.reward{ class: "#{@user.referrals.count >= reward['count'] ? 'selected' : ''} #{reward['class']}"}
+      - @prizes.each do |prize|
+        %li.reward{ class: "#{@user.referrals.count >= prize.prize_count ? 'selected' : ''} #{prize.prize_class}"}
           .circle
-            -if reward['class'] == 'prize-grand'
+            -if prize.prize_class == 'prize-grand'
               $
             -else
-              =reward['count']
-          %p.title= reward['title'].html_safe
+              =prize.prize_count
+          %p.title= prize.title.html_safe
           .modal
-            -if reward['class'] == 'prize-grand'
+            -if prize.prize_class == 'prize-grand'
               .grand_prize_steps
                 -@grand_prize_steps.each do |step|         
                   .grand_prize_step{ class: "#{@user.referrals.count < step['referrals'] ? 'below' : 'above'}"}
@@ -66,20 +66,25 @@
                     .tickets
                       ="Each Referral = #{pluralize(step['tickets'], 'ticket')}"
               .description
-                =reward['description'].html_safe
+                =prize.description.html_safe
 
 
             -else
-              -if reward['class'] == 'prize-one'
-                %img{src: "#{reward['image']}"}
-              -if reward['class'] == 'prize-two'
-                .description
-                  =reward['description'].html_safe
-                  %span.remaining
-                    =reward['remaining']
-                    of 30 remaining
+              -if prize.prize_class == 'prize-one'
+                %img{src: "#{asset_path(prize.image)}"}
+              -if prize.prize_class == 'prize-two'
+                -if prize.remaining > 0
+                  .description
+                    =prize.description.html_safe
+                    %span.remaining
+                      =prize.remaining
+                      of 30 remaining
+                -else
+                  .description
+                    =prize.description.html_safe
+                    %span.remaining All Gone!
 
-    .progress_bar_wrapper{ class: "#{@current_reward.nil? ? '' : @current_reward['class']}" }
+    .progress_bar_wrapper
       .filled{ data: { referral_count: @user.referrals.count}}
   
 .raffle_count
