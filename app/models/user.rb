@@ -79,6 +79,10 @@ class User < ActiveRecord::Base
       }
     ]
 
+    def referral_count
+      self.referrals.count
+    end
+    
     def grand_prize_progress
       count = self.referrals.count
       if count <= 15
