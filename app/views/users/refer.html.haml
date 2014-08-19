@@ -1,3 +1,11 @@
+- content_for :head do
+  %meta{content: "NurseGrid referral program, invite friends and win big!", property: "og:title"}
+  %meta{content: "website", property: "og:type"}
+  %meta{content: "http://blog.nursegrid.com/wp-content/uploads/2014/08/9Mobile-Dashboard1.png", property: "og:image"}
+  / %meta{content: "http://nursegridreferral.com/?ref=#{@user.referral_code}", property: "og:url"}
+  %meta{content: "NurseGrid Referral Program", property: "og:site_name"}
+  %meta{content: "I can't wait for NurseGrid! It's an app for nurses, by nurses. Join free today and earn prizes!", property: "og:description"}
+
 .header
   .message_container
     =image_tag "white_logo.png"
@@ -21,7 +29,7 @@
     .share_links
       %ul.rrssb-buttons.clearfix
         %li.facebook
-          %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegridreferral.com/"}
+          %a.popup{href: "https://www.facebook.com/sharer/sharer.php?u=http://nursegridreferral.com/?ref=#{@user.referral_code}"}
             %i.fa.fa-facebook
             %span.text facebook
         %li.twitter
