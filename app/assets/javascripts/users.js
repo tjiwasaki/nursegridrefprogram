@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var fill_bar = $(".progress_bar_wrapper").find(".filled")
 	var referral_count = fill_bar.data('referralCount');
 	fill_bar.css({
-		width: ((referral_count / 30) * 100) + 5 + "%"
+		width: ((referral_count / 40) * 100) + 5 + "%"
 	})
 
   // adjusting size of body for mobile to keep things above the fold

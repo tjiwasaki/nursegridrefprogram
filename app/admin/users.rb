@@ -3,7 +3,8 @@ ActiveAdmin.register User do
 
   index do                            
     column :email                     
-    column :referral_code        
+    column :referral_code   
+    column :referrer     
     column :created_at           
     column :prize_two_winner
     column :referral_count

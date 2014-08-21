@@ -48,6 +48,7 @@ class UsersController < ApplicationController
           if !@referred_by.nil?
             @user.referrer = @referred_by
             @user.referrer.check_prize_level
+            @referred_by.send_referral_confirmation_email
           end
 
           @user.save

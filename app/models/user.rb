@@ -118,6 +118,11 @@ class User < ActiveRecord::Base
       
     end
 
+    def send_referral_confirmation_email
+      UserMailer.referral_confirmation(self).deliver
+    end
+    handle_asynchronously :send_referral_confirmation_email
+
     private
 
     def create_referral_code

@@ -32,4 +32,4 @@
     = form_for @user, :url => { :action => "create" } do |f|
       .field
         = f.text_field :email, :placeholder => "enter email"
-        %input{name: "commit", type: "submit", onsubmit: "ga('send', {'hitType': 'event', 'eventCategory': 'ReferralRegistration', 'eventAction': 'RegistrationClick', 'eventLabel': 'SplashPgReg': '' });"}
+        %input{name: "commit", type: "submit", value: "Enter", onsubmit: "ga('send', {'hitType': 'event', 'eventCategory': 'ReferralRegistration', 'eventAction': 'RegistrationClick', 'eventLabel': 'SplashPgReg': '' });"}

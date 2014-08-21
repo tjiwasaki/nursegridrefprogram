@@ -1,10 +1,10 @@
-- content_for :head do
-  %meta{content: "NurseGrid referral program, invite friends and win big!", property: "og:title"}
-  %meta{content: "website", property: "og:type"}
-  %meta{content: "http://blog.nursegrid.com/wp-content/uploads/2014/08/9Mobile-Dashboard1.png", property: "og:image"}
-  / %meta{content: "http://nursegridreferral.com/?ref=#{@user.referral_code}", property: "og:url"}
-  %meta{content: "NurseGrid Referral Program", property: "og:site_name"}
-  %meta{content: "I can't wait for NurseGrid! It's an app for nurses, by nurses. Join free today and earn prizes!", property: "og:description"}
+/ - content_for :head do
+/   %meta{content: "NurseGrid referral program, invite friends and win big!", property: "og:title"}
+/   %meta{content: "website", property: "og:type"}
+/   %meta{content: "http://blog.nursegrid.com/wp-content/uploads/2014/08/9Mobile-Dashboard1.png", property: "og:image"}
+/   / %meta{content: "http://nursegridreferral.com/?ref=#{@user.referral_code}", property: "og:url"}
+/   %meta{content: "NurseGrid Referral Program", property: "og:site_name"}
+/   %meta{content: "I can't wait for NurseGrid! It's an app for nurses, by nurses. Join free today and earn prizes!", property: "og:description"}
 
 .header
   .message_container
@@ -78,7 +78,7 @@
 
 
             -else
-              -if prize.prize_class == 'prize-one'
+              -if prize.prize_class == 'prize-one' || prize.prize_class == 'prize-one-b'
                 %img{src: "#{asset_path(prize.image)}"}
               -if prize.prize_class == 'prize-two'
                 -if prize.remaining > 0
