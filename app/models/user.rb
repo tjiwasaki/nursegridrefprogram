@@ -82,6 +82,10 @@ class User < ActiveRecord::Base
     def referral_count
       self.referrals.count
     end
+
+    def adjusted_referral_count
+      self.referral_count + 1
+    end
     
     def grand_prize_progress
       count = self.referrals.count
