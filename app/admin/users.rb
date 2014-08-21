@@ -11,4 +11,19 @@ ActiveAdmin.register User do
     column :grand_prize_progress
     default_actions                   
   end
+
+  csv do
+    column :id
+    # column('Full Name') { |user| user.full_name }
+    column :email
+    column :referral_code
+    column :created_at
+    column('Prize 2 Winner') {|user| (user.prize_two_winner ? 'true' : 'false')}
+    column('Referrer') {|user| (user.referrer ? user.referrer.email : nil)}
+    column('Referral Count') {|user| user.referral_count}
+    column('Grand Prize Tickets') {|user| user.grand_prize_progress}
+
+  end
+
+  index :download_links => [:csv]
 end

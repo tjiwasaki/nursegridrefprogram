@@ -27,3 +27,11 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+.index #active_admin_content #index_footer {
+  a {
+    display: none; // Hides the CSV .. links
+  }
+  a:first-child {
+    display: inline;
+  }
+}
