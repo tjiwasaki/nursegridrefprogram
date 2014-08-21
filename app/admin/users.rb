@@ -1,7 +1,8 @@
 ActiveAdmin.register User do
   actions :index, :show
 
-  index do                            
+  index do   
+    column :id                         
     column :email                     
     column :referral_code   
     column :referrer     
@@ -9,12 +10,12 @@ ActiveAdmin.register User do
     column :prize_two_winner
     column :referral_count
     column :grand_prize_progress
+
     default_actions                   
   end
 
   csv do
     column :id
-    # column('Full Name') { |user| user.full_name }
     column :email
     column :referral_code
     column :created_at
@@ -25,5 +26,4 @@ ActiveAdmin.register User do
 
   end
 
-  index :download_links => [:csv]
 end
