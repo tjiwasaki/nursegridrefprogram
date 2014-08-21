@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
     before_create :create_referral_code
     after_create :send_welcome_email
+    after_create :send_referral_confirmation_email
 
     # REFERRAL_STEPS = [
     #   {
@@ -123,7 +124,9 @@ class User < ActiveRecord::Base
     end
 
     def send_referral_confirmation_email
-      UserMailer.referral_confirmation(self).deliver
+      if self.referrer
+        UserMailer.referral_confirmation(referrer).deliver
+      end
     end
     handle_asynchronously :send_referral_confirmation_email
 

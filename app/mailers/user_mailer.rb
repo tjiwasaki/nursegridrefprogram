@@ -6,7 +6,7 @@ class UserMailer < MandrillMailer::TemplateMailer
                   subject: 'A friend has just used your referral code!',
                   to: user.email,
                   vars: {
-                    'REFERRAL_COUNT' => user.adjusted_referral_count,
+                    'REFERRAL_COUNT' => user.referral_count,
                     'REFERRAL_CODE' => "nursegridreferral.com/?ref=#{user.referral_code}"
                   },
                   important: true,
